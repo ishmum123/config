@@ -1,0 +1,63 @@
+# Import Catppuccin Mocha color scheme
+import = ["~/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+decorations = "buttonless"
+opacity = 0.9
+dynamic_padding = false
+
+[window.padding]
+x = 20
+y = 20
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font"
+style = "Bold Italic"
+
+[cursor]
+style = "Block"
+unfocused_hollow = true
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[bell]
+animation = "EaseOutExpo"
+duration = 300
+color = "#ffffff"
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\\t"
+
+[shell]
+program = "/usr/bin/zsh"
+args = ["--login"]
+
+[mouse]
+hide_when_typing = false
+
+[keyboard]
+bindings = [
+  { key = "N", mods = "Command", action = "SpawnNewInstance" }
+]
+

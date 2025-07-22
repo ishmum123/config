@@ -194,4 +194,19 @@ return {
       },
     },
   },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
+    opts = {
+      ensure_installed = { "tsserver", "vue-language-server", "pyright" }, -- add your servers
+      automatic_installation = true,
+      -- disable auto-enable for specific servers if needed:
+      automatic_handlers = {
+        exclude = { "tsserver" },
+      },
+    },
+    config = function(_, opts)
+      require("mason-lspconfig").setup(opts)
+    end,
+  },
 }

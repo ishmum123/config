@@ -1,19 +1,36 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    -- optional perf optimizations
-    lazy = true,
-    config = function()
-      require("lspconfig").phpactor.setup({
-        root_dir = require("lspconfig.util").root_pattern("composer.json", ".git"),
-        init_options = {
-          ["language_server.diagnostics_on_update"] = false,
-          ["language_server.diagnostics_on_open"] = false,
-          ["language_server.diagnostics_on_save"] = false,
-          ["language_server_phpstan.enabled"] = false,
-          ["language_server_psalm.enabled"] = false,
+    opts = {
+      servers = {
+        tsserver = {}, -- will be overridden by typescript-tools if used
+        dartls = {
+          cmd = { "dart", "language-server", "--protocol=lsp" },
+          filetypes = { "dart" },
+          root_dir = require("lspconfig.util").root_pattern("pubspec.yaml", ".git"),
         },
-      })
-    end,
+        intelephense = {
+          cmd = { "intelephense", "--stdio" },
+          filetypes = { "php" },
+          root_dir = require("lspconfig.util").root_pattern(".git", "composer.json"),
+          settings = {
+            intelephense = {
+              files = {
+                associations = { "*.php", "*.module", "*.inc" },
+                maxSize = 5000000,
+              },
+              diagnostics = { enable = true },
+            },
+          },
+        },
+      },
+      setup = {
+        -- Example: use typescript-tools.nvim instead of tsserver
+        tsserver = function(_, opts)
+          require("typescript-tools").setup({ server = opts })
+          return true
+        end,
+      },
+    },
   },
 }

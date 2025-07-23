@@ -3,4 +3,4 @@ require("config.lazy")
 
 vim.o.termguicolors = true
 -- optional: set background depending on preference
-vim.o.background = "light"
+vim.o.background = "light" -- or 'dark'

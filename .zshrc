@@ -127,4 +127,4 @@ alias vi='nvim'
 alias grep='rg'
 alias zconf='vi ~/.zshrc && source ~/.zshrc'
 
-export PATH=$HOME/.sdks/flutter/bin:$PATH
+export PATH=$HOME/.sdks/flutter/bin:$HOME/.local/bin:$PATH

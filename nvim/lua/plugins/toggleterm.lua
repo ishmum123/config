@@ -25,7 +25,6 @@ return {
         direction = "vertical",
         hidden = true,
         on_open = function(t)
-          -- vim.cmd("startinsert!")
           -- map 'q' to close it
           vim.api.nvim_buf_set_keymap(t.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
         end,

@@ -10,3 +10,4 @@ vim.keymap.set(
   "<C-o><C-w>a",
   { noremap = true, silent = true, desc = "Ctrl+W window command in Insert mode" }
 )
+vim.keymap.set("n", "<C-q>", ":q<CR>", { noremap = true, silent = true, desc = "Save if modified" })

@@ -19,6 +19,22 @@ return {
       end,
     })
 
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "PersistenceSavePre",
+      callback = function()
+        vim.g.LAST_CMD = _G.last_cmd or ""
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "PersistenceLoadPost",
+      callback = function()
+        if vim.g.LAST_CMD then
+          _G.last_cmd = vim.g.LAST_CMD
+        end
+      end,
+    })
+
     -- Optional keymaps
     vim.keymap.set("n", "<leader>qs", function()
       require("persistence").load()

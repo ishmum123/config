@@ -26,14 +26,17 @@ return {
         hidden = true,
         on_open = function(t)
           -- map 'q' to close it
-          vim.api.nvim_buf_set_keymap(t.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
+          vim.api.nvim_buf_set_keymap(t.bufnr, "n", "q", "i<Esc>:silent! close<CR>", { noremap = true, silent = true })
         end,
       })
+
+      _G.last_cmd = nil
 
       -- change command
       local function _change_cmd()
         vim.ui.input({ prompt = "Command to run in right panel: " }, function(input)
           if input and input ~= "" then
+            _G.last_cmd = input
             cmd_terminal.cmd = input
           else
             vim.notify("No command provided", vim.log.levels.WARN)
@@ -45,9 +48,11 @@ return {
 
       -- toggle command
       local function _run_cmd()
-        if cmd_terminal.cmd == "" then
+        cmd_terminal.cmd = _G.last_cmd
+        if not cmd_terminal.cmd or cmd_terminal.cmd == "" then
           vim.ui.input({ prompt = "Command to run in right panel: " }, function(input)
             if input and input ~= "" then
+              _G.last_cmd = input
               cmd_terminal.cmd = input
             else
               vim.notify("No command provided", vim.log.levels.WARN)

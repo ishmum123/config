@@ -35,34 +35,24 @@ return {
       -- change command
       local function _change_cmd()
         vim.ui.input({ prompt = "Command to run in right panel: " }, function(input)
-          if input and input ~= "" then
-            _G.last_cmd = input
-            cmd_terminal.cmd = input
-          else
+          if input == nil or input == "" then
             vim.notify("No command provided", vim.log.levels.WARN)
             return
           end
+          _G.last_cmd = input
+          cmd_terminal.cmd = input
           cmd_terminal:toggle()
         end)
       end
 
       -- toggle command
       local function _run_cmd()
-        cmd_terminal.cmd = _G.last_cmd
-        if not cmd_terminal.cmd or cmd_terminal.cmd == "" then
-          vim.ui.input({ prompt = "Command to run in right panel: " }, function(input)
-            if input and input ~= "" then
-              _G.last_cmd = input
-              cmd_terminal.cmd = input
-            else
-              vim.notify("No command provided", vim.log.levels.WARN)
-              return
-            end
-            cmd_terminal:toggle()
-          end)
-        else
+        cmd_terminal.cmd = _G.last_cmd or ""
+        if cmd_terminal.cmd ~= "" then
           cmd_terminal:toggle()
+          return
         end
+        _change_cmd()
       end
 
       vim.api.nvim_set_keymap(

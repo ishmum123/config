@@ -23,6 +23,7 @@ return {
       pattern = "PersistenceSavePre",
       callback = function()
         vim.g.LAST_CMD = _G.last_cmd or ""
+        vim.g.AUTOFORMAT_ENABLED = vim.g.autoformat -- copy current setting
       end,
     })
 
@@ -31,6 +32,9 @@ return {
       callback = function()
         if vim.g.LAST_CMD then
           _G.last_cmd = vim.g.LAST_CMD
+        end
+        if vim.g.AUTOFORMAT_ENABLED ~= nil then
+          vim.g.autoformat = vim.g.AUTOFORMAT_ENABLED
         end
       end,
     })

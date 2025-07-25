@@ -16,14 +16,14 @@ return {
         -- Only save if modifiable
         return vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].modifiable
       end,
-      write_all_buffers = false,
       execution_message = {
         message = function()
-          return "AutoSave ➤ " .. vim.fn.strftime("%H:%M:%S")
-        end,
-        dim = 0.15,
-        cleaning_interval = 1000,
+          return ""
+        end, -- no visible message
+        dim = 1, -- fade out completely
+        cleaning_interval = 0, -- no cleanup needed
       },
+      write_all_buffers = false,
     },
     config = function(_, opts)
       require("auto-save").setup(opts)

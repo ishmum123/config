@@ -128,3 +128,6 @@ alias grep='rg'
 alias zconf='vi ~/.zshrc && source ~/.zshrc'
 
 export PATH=$HOME/.sdks/flutter/bin:$HOME/.local/bin:$PATH
+
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"

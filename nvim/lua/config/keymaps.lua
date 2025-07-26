@@ -11,3 +11,12 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Ctrl+W window command in Insert mode" }
 )
 vim.keymap.set("n", "<C-q>", ":q<CR>", { noremap = true, silent = true, desc = "Save if modified" })
+
+vim.keymap.set("n", "<C-_>", function()
+  require("Comment.api").toggle.linewise.current()
+end, { noremap = true, silent = true, desc = "Comment line (Ctrl+/)" })
+
+vim.keymap.set("v", "<C-_>", "<Plug>(comment_toggle_linewise_visual)", { silent = true })
+
+vim.keymap.set("n", "<leader>/", "gcc", { remap = true, desc = "Toggle line comment" })
+vim.keymap.set("v", "<leader>/", "gb", { remap = true, desc = "Toggle block comment" })

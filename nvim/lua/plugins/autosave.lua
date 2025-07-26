@@ -29,7 +29,7 @@ return {
       require("auto-save").setup(opts)
       vim.api.nvim_set_keymap(
         "n",
-        "<leader>n",
+        "<leader>A",
         "<cmd>ASToggle<CR>",
         { noremap = true, silent = true, desc = "Toggle AutoSave" }
       )

@@ -10,9 +10,14 @@ return {
     end,
   },
   {
-    "LazyVim/LazyVim",
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
     opts = {
-      colorscheme = "vimbones",
+      style = "moon", -- dark theme style (change to "night", "storm", or "day")
+      transparent = false,
+      sidebars = "dark",
+      floats = "dark",
     },
   },
 }

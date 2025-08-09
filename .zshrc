@@ -77,7 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -122,12 +122,22 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export KEYTIMEOUT=1
 
-alias cd='z'
+# alias cd='z'
 alias vi='nvim'
-alias grep='rg'
+# alias grep='rg'
 alias zconf='vi ~/.zshrc && source ~/.zshrc'
+alias kt="kitty +kitten themes"
+alias sm="ssh mahfil@192.168.68.144"
+alias l="ls"
 
-export PATH=$HOME/.sdks/flutter/bin:$HOME/.local/bin:$PATH
+export ANDROID_SDK_ROOT="/opt/homebrew/share/android-commandlinetools"
+
+export PATH="$PATH:$HOME/.sdks/flutter/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin"
+export PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools"
+export PATH="$PATH:$ANDROID_SDK_ROOT/emulator"
+export PATH="$PATH:/opt/homebrew/opt/openjdk/bin"
 
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include -I/opt/homebrew/opt/openjdk/include"

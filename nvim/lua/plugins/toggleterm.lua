@@ -64,7 +64,7 @@ return {
 
       vim.api.nvim_set_keymap(
         "n",
-        "<leader>x",
+        "<leader>ux",
         "<cmd>lua _change_cmd()<CR>",
         { noremap = true, silent = true, desc = "Toggle custom cmd terminal on right" }
       )

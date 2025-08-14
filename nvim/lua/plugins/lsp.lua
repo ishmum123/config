@@ -3,7 +3,8 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        tsserver = {}, -- will be overridden by typescript-tools if used
+        pyright = {},
+        tsserver = { enabled = false }, -- will be overridden by typescript-tools if used
         dartls = {
           cmd = { "dart", "language-server", "--protocol=lsp" },
           filetypes = { "dart" },
@@ -23,13 +24,6 @@ return {
             },
           },
         },
-      },
-      setup = {
-        -- Example: use typescript-tools.nvim instead of tsserver
-        tsserver = function(_, opts)
-          require("typescript-tools").setup({ server = opts })
-          return true
-        end,
       },
     },
   },

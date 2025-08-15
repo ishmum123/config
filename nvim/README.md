@@ -5,7 +5,8 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 
 # TODO
 * Apply formatter after waiting a bit (this ensures undo works properly) 
-* Configure debuggers
+* Configure PHP and Typescript debugger
+* Connect with chatgpt
 
 
 ```

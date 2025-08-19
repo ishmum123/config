@@ -1,0 +1,11 @@
+gui:
+  sidePanelWidth: 0.25
+  showDivergenceFromBaseBranch: true
+  showIcons: true
+  showFileTree: true
+  showBottomLine: false
+  showCommandLog: false
+  showFileTreeWithSideBySideDiff: true  # 👈 important
+  sideBySideDiff: true                  # 👈 enables side-by-side diff
+  skipDiscardChangeWarning: true        # 👈 disable confirmation for discarding changes 
+

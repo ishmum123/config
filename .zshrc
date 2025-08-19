@@ -122,7 +122,7 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export KEYTIMEOUT=1
 
-# alias cd='z'
+alias c='z'
 alias vi='nvim'
 # alias grep='rg'
 alias zconf='vi ~/.zshrc && source ~/.zshrc'
@@ -142,3 +142,23 @@ export PATH="$PATH:/Users/ishmum/bin"
 
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include -I/opt/homebrew/opt/openjdk/include"
+
+kill_port() {
+  local port="$1"
+  if [[ -z "$port" ]]; then
+    echo "Usage: kill_port <port>"
+    return 1
+  fi
+
+  # Get PIDs listening on the specified port
+  local pids
+  pids=$(lsof -t -i tcp:"$port")
+  if [[ -z "$pids" ]]; then
+    echo "No process is running on port $port"
+    return 0
+  fi
+
+  echo "Killing process(es) on port $port: $pids"
+  kill $pids
+}
+

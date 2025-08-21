@@ -2,13 +2,15 @@ return {
   "sphamba/smear-cursor.nvim",
   opts = {
     legacy_computing_symbols_support = true,
-    cursor_color = "#ff8800",
-    stiffness = 0.8, -- 0.6      [0, 1]
-    trailing_stiffness = 0.6, -- 0.45     [0, 1]
-    stiffness_insert_mode = 0.7, -- 0.5      [0, 1]
-    trailing_stiffness_insert_mode = 0.7, -- 0.5      [0, 1]
-    damping = 0.8, -- 0.85     [0, 1]
-    damping_insert_mode = 0.95, -- 0.9      [0, 1]
-    distance_stop_animating = 0.5, -- 0.1      > 0
+    cursor_color = "#92e6b4",
+    stiffness = 0.8,
+    trailing_stiffness = 0.6,
+    stiffness_insert_mode = 0.7,
+    trailing_stiffness_insert_mode = 0.7,
+    damping = 0.8,
+    damping_insert_mode = 0.95,
+    distance_stop_animating = 0.5,
+    never_draw_over_target = true,
+    hide_target_hack = true,
   },
 }

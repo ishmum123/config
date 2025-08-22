@@ -12,6 +12,6 @@ return {
     distance_stop_animating = 0.8,  -- Increased distance before animation stops
     never_draw_over_target = true,
     hide_target_hack = true,
-    distance_start_animating = 1.5,  -- Only start animation when moving more than 1 line
+    smear_between_neighbor_lines = false  -- Disable smear effect for neighboring line movements
   },
 }

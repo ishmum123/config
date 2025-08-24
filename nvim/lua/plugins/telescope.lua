@@ -5,7 +5,7 @@ return {
   config = function()
     require("telescope").setup({
       defaults = {
-        initial_mode = "insert",
+        initial_mode = "normal",
         generic_sorter = require("telescope.sorters").get_fuzzy_file,
         file_sorter = require("telescope.sorters").get_fuzzy_file,
       },
